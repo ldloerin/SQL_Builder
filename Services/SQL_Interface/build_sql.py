@@ -7,14 +7,13 @@ class BuildSql():
         self.customers = input.customers
         self.root = input.root
         self.database_file = os.path.join(self.root, 'Database', 'Customers.db')
-    
+
     def execute_workflow(self):
         self.__remove_database()
         self.__connect_database()
         self.initialize_table()
         self.add_table_values()
         self.__close_connection()
-
 
     def __remove_database(self):
         if os.path.exists(self.database_file):
