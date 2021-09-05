@@ -13,7 +13,9 @@ class BuildSqlDatabase(GetInput):
 
     def __main(self):
         self.root = os.path.split(os.path.dirname(__file__))[0]
-        self.sql_command_list = BuildSql(self).sql_command_list
+        sql = BuildSql(self)
+        sql.execute_workflow()
+        self.sql_command_list = sql.sql_command_list
 
     def __create_dockerfile(self):
         self.root_path = os.path.dirname(self.code_path)
