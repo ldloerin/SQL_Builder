@@ -91,10 +91,6 @@ text = """1	Alfreds Futterkiste	Maria Anders	Obere Str. 57	Berlin	12209	Germany
 91	Wolski	Zbyszek	ul. Filtrowa 68	Walla	01-012	Poland
 92	Antikvárium	Könyves Istvan	Oktogon 9	Budapest	1234	Hungary"""
 
-print('--------------------------------------------')
-print('--------------------------------------------')
-print('--------------------------------------------')
-
 text = text.split("\n")
 print("{")
 for line in text:
