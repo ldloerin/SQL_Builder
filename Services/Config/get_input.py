@@ -10,6 +10,4 @@ class GetInput:
     def __get_input_parameters(self):
         parameter_file = os.path.join(self.code_path, "Input", "config.json")
         parameter_file = parameter_file.replace("\\", "/")
-        inputs = ReadJsonFile.load(parameter_file)
-        for key, value in inputs.items():
-            setattr(self, key, value)
+        self.customers = ReadJsonFile.load(parameter_file)
