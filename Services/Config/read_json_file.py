@@ -10,6 +10,6 @@ class ReadJsonFile:
 
     def load(json_path):
         if ReadJsonFile.is_json_path_valid(json_path):
-            with open(json_path, "r") as json_path:
+            with open(json_path, encoding="utf-8") as json_path:
                 inputs = json.load(json_path)
                 return inputs
