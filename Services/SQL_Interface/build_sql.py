@@ -20,8 +20,8 @@ class BuildSql():
             os.remove(self.database_file)
 
     def __connect_database(self):
-        self.connection = sqlite3.connect(self.database_file)
-        self.c = self.connection.cursor()
+        self.conn = sqlite3.connect(self.database_file)
+        self.c = self.conn.cursor()
 
     def initialize_table(self):
         sql_command = "CREATE TABLE Customers ("
@@ -35,6 +35,7 @@ class BuildSql():
         sql_command += ")"
         try:
             self.c.execute(sql_command)
+            self.conn.commit()
         except Exception as e:
             print(e)
             print('Database connection not available during test')
@@ -52,12 +53,11 @@ class BuildSql():
             sql_command += "'" + value["Country"] + "')"
             try:
                 self.c.execute(sql_command)
+                self.conn.commit()
             except Exception as e:
                 print(e)
                 print('Database connection not available during test')
             self.sql_command_list.append(sql_command)
 
     def __close_connection(self):
-        # self.c.execute("SELECT * FROM Customers")
-        # print(self.c.fetchall())
-        self.connection.close()
+        self.conn.close()
